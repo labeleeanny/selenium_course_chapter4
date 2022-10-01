@@ -1,13 +1,12 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoAlertPresentException   # not working due to code commenting
 import math
-import time
 
 
 class ProductPage(BasePage):
     def should_be_product_link(self):
-        self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), "Product page URL is not presented"
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), "Product page URL is not presented"
 
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(
@@ -33,17 +32,19 @@ class ProductPage(BasePage):
         #     print("No second alert presented")
 
     def should_be_add_to_basket_message(self):
-        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "Add To Basket Message is not presented"
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "Add To Basket Message is not " \
+                                                                                    "presented "
 
     def should_match_titles_of_add_to_basket_message_and_product(self):
         title_of_product = self.browser.find_element(*ProductPageLocators.TITLE_OF_PRODUCT).text
         basket_message_product_name = self.browser.find_element(*ProductPageLocators.BASKET_MESSAGE_PRODUCT_NAME).text
-        assert title_of_product == basket_message_product_name, "Title of product doesn't match with title of Add To Basket Message"
+        assert title_of_product == basket_message_product_name, "Product title and Add To basket Message do not match"
 
     def should_be_basket_price_message(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE_MESSAGE),  "Price Basket Message is not presented"
+        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE_MESSAGE),  "Price Basket Message is not " \
+                                                                                    "presented "
 
     def should_match_prices_of_basket_message_and_product(self):
         price_of_product = self.browser.find_element(*ProductPageLocators.PRICE_OF_PRODUCT).text
         basket_message_product_price = self.browser.find_element(*ProductPageLocators.BASKET_MESSAGE_PRODUCT_PRICE).text
-        assert price_of_product == basket_message_product_price, "Price of product doesn't match with price of Basket Price Message"
+        assert price_of_product == basket_message_product_price, "Product price and Basket Price Message do not match"

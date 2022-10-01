@@ -1,6 +1,5 @@
 import pytest
 from pages.product_page import ProductPage
-import time
 
 
 @pytest.mark.parametrize('links', ["?promo=offer0", "?promo=offer1", "?promo=offer2", "?promo=offer3", "?promo=offer4",
