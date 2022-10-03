@@ -18,3 +18,8 @@ class ProductPageLocators:
     BASKET_PRICE_MESSAGE = (By.CSS_SELECTOR, "#messages div.alert-info p:nth-child(1)")
     BASKET_MESSAGE_PRODUCT_PRICE = (By.XPATH, "//div[1]/p/strong")
     PRICE_OF_PRODUCT = (By.CSS_SELECTOR, "div.product_main p.price_color")
+
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
